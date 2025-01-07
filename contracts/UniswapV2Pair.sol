@@ -83,7 +83,7 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
     // feeRate is a unit of ten thousandths
     // initial feeRate is 0.3%
     function setFeeRate(uint256 totalFeeRate) external onlyFactory {
-        require(totalFeeRate <= 10000 && totalFeeRate > 0, 'UniswapV2: INVALID_FEE_RATE');
+        require(totalFeeRate <= 10000 && totalFeeRate >= 0, 'UniswapV2: INVALID_FEE_RATE');
         feeRate = totalFeeRate;
         emit FeeRateChange(feeRate);
     }
